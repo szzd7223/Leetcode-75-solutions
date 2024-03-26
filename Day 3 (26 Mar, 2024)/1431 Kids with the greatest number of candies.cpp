@@ -13,7 +13,6 @@ vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies)
         {
             maxCandies = candies[i];
         }
-        i++;
     }
 
     //find if extracandies+candies[j] > maxCandies
