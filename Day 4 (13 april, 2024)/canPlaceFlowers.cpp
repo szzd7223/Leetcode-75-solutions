@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+using namespace std;   
+
+bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+    flowerbed.insert(flowerbed.begin(), 0);
+    flowerbed.push_back(0);
+    for(int i=1; i < (flowerbed.size()-1); i++){
+        if(flowerbed[i]==0 && flowerbed[i-1]==0 && flowerbed[i+1]==0){
+            flowerbed[i] = 1;
+            n--;
+        }
+    }
+    return n <= 0;
+}
+
+int main()
+{
+    vector<int> arr = {1,2,3,4,5,6,7,8,9,10};
+    cout << arr.size() << endl;
+}
