@@ -3,11 +3,12 @@
 using namespace std;   
 
 bool canPlaceFlowers(vector<int>& flowerbed, int n) {
-    flowerbed.insert(flowerbed.begin(), 0);
-    flowerbed.push_back(0);
-    for(int i=1; i < (flowerbed.size()-1); i++){
-        if(flowerbed[i]==0 && flowerbed[i-1]==0 && flowerbed[i+1]==0){
-            flowerbed[i] = 1;
+    vector<int> modifiedFlowerBed(flowerbed.begin(), flowerbed.end());
+    modifiedFlowerBed.insert(modifiedFlowerBed.begin(), 0);
+    modifiedFlowerBed.push_back(0);
+    for(int i=1; i < (modifiedFlowerBed.size()-1); i++){
+        if(modifiedFlowerBed[i]==0 && modifiedFlowerBed[i-1]==0 && modifiedFlowerBed[i+1]==0){
+            modifiedFlowerBed[i] = 1;
             n--;
         }
     }
@@ -16,6 +17,20 @@ bool canPlaceFlowers(vector<int>& flowerbed, int n) {
 
 int main()
 {
-    vector<int> arr = {1,2,3,4,5,6,7,8,9,10};
-    cout << arr.size() << endl;
+    vector<int> flowerbed;
+    int n,k;
+    cout << "Enter number of flowers:" << endl;
+    cin >> n;
+    cout << "Enter number of 0 and 1:" << endl;
+    cin >> k;
+    for(int i=0; i<k; i++)
+    {
+        int number;
+        cout << "Enter 0 or 1:" << endl;
+        cin >> number;
+        flowerbed.push_back(number);
+    }
+    bool result = canPlaceFlowers(flowerbed, n);
+    cout << (result ? "true" : "false") << endl;
+    return 0;
 }
