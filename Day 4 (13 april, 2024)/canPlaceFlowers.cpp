@@ -31,6 +31,6 @@ int main()
         flowerbed.push_back(number);
     }
     bool result = canPlaceFlowers(flowerbed, n);
-    cout << (result ? "true" : "false") << endl;
+    cout << "can place flowers: " << (result ? "true" : "false") << endl;
     return 0;
 }
